@@ -585,4 +585,10 @@ height: 100%;
 bottom: 0em !important;
 right: 0em !important;
 }
+.easychat-bottheme3-navbar{
+    border-radius: 0;
+}
+.easychat-bottheme3-message-section-area-div{
+    overflow-y: hidden;
+}
 }
