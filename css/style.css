@@ -1,0 +1,588 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+#allincall-popup {
+    bottom: 1.2em;
+    transition: all 0.1s ease;
+    position: fixed;
+    cursor: pointer;
+    right: 20px;
+    width: 8em;
+    z-index: 2147483647;
+    /* display: none; */
+}
+
+#allincall-chat-box {
+    bottom: 4.5em;
+    right: 2em;
+    width: 420px;
+    animation-duration: 1s;
+    height: 87vh;
+    /* height: calc(100vh - 80px); */
+    display: none;
+    position: fixed;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    max-height: 100%;
+    z-index: 2147483646;
+    background: #FAFAFA;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    background-image: url(../img/chat_bot_back_img.svg);
+    background-repeat: repeat-y;
+    background-position: bottom;
+}
+
+#easychat-bot-minimize-button {
+    transition: transform 0.2s ease-out;
+    cursor: pointer;
+    z-index: 9999;
+    display: none;
+    position: fixed;
+    right: 40px;
+    bottom: 0.2em;
+}
+
+
+/* footer css */
+
+.easychat-bottheme3-footer-area-div {
+    width: 100%;
+    height: max-content;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 0px 0px 16px 16px;
+    padding: 0px 16px;
+}
+
+.easychat-bottheme3-footer-input-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.easychat-bottheme3-footer-input-container {
+    background: #FFFFFF;
+    border: 1px solid #C4C9D9;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 40px;
+    width: calc(100% - 56px);
+    display: flex;
+    align-items: center;
+}
+
+.easychat-bottheme3-footer-input-container svg {
+    cursor: pointer;
+}
+
+.easychat-bottheme3-footer-query-input-div {
+    width: 48px;
+    height: 48px;
+    background: #0F248C;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.easychat-bottheme3-footer-brand-name-div {
+    width: 100%;
+    padding: 7px 0px 4px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.easychat-query-send-icon {
+    margin-left: 4px;
+    display: none;
+}
+
+.easychat-bot-restart-div {
+    padding: 0px 16px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.easychat-bot-language-div {
+    /* width: 40px; */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px 0px 12px;
+}
+
+.easychat-bot-user-input-div {
+    width: calc(100% - 112px);
+    height: auto;
+}
+
+.easychat-bot-user-input-div .input-area-wrapper .input-area {
+    position: relative;
+    z-index: 1;
+    min-height: 26px;
+    max-height: 82px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    outline: none;
+    user-select: text;
+    line-height: 20px;
+    width: 100%;
+    padding-right: 2px;
+}
+
+.easychat-bot-user-input-div .input-area-wrapper .placeholder-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 14px;
+    line-height: 24px;
+    color: #767B87;
+    ;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* transition: opacity .08s linear; */
+}
+
+.easychat-bot-user-input-div .input-area-wrapper .input-area::-webkit-scrollbar {
+    width: 6px!important;
+    height: 6px!important;
+}
+
+.easychat-bot-user-input-div .input-area-wrapper .input-area::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, .1);
+}
+
+.easychat-bot-user-input-div .input-area-wrapper .input-area::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.easychat-bot-user-input-div .input-area-wrapper {
+    min-height: 48px;
+    position: relative;
+    padding: 7px 0px 4px;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    width: 100%;
+    line-height: 20px;
+    outline: none;
+    will-change: width;
+    display: flex;
+    align-items: center;
+}
+
+
+/* .easychat-bot-user-input-div input {
+    min-height: 48px;
+    max-height: 130px;
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-weight: normal;
+    font-size: 16px;
+    color: #000000;
+}
+
+.easychat-bot-user-input-div input::placeholder {
+    font-weight: 500;
+    font-size: 14px;
+    color: #767B87;
+} */
+
+
+/* footer css */
+
+
+/* header css */
+
+.easychat-bottheme3-navbar {
+    /* height: 321px; */
+    background: #0F248C;
+    border-radius: 16px 16px 0px 0px;
+    min-height: 64px;
+    padding: 0px 24px;
+    display: flex;
+    align-items: center;
+}
+
+.easychat-bottheme3-navbar.easychat-welcome-home-navbar-div {
+    height: 240px;
+    display: block;
+}
+
+.easychat-bottheme3-navbar.easychat-welcome-home-navbar-div .easychat-bot-normal-header-div {
+    display: none;
+}
+
+
+/* .easychat-bottheme3-navbar.easychat-welcome-home-navbar-div .easychat-bot-company-logo-div {
+    width: auto;
+    padding-top: 28px;
+    height: auto;
+    margin-left: -10px;
+} */
+
+.easychat-bottheme3-navbar.easychat-welcome-home-navbar-div .easychat-bot-welcome-message-div {
+    display: block;
+}
+
+.easychat-bottheme3-navbar.easychat-welcome-home-navbar-div .easychat-bot-company-logo-div svg,
+.easychat-bottheme3-navbar.easychat-welcome-home-navbar-div .easychat-bot-company-logo-div img {
+    width: 170px;
+    height: 40px;
+}
+
+.easychat-bot-company-logo-div {
+    width: 125px;
+    height: 64px;
+    display: flex;
+    padding: 8px 0px;
+    align-items: center;
+}
+
+.easychat-bot-company-logo-div svg,
+.easychat-bot-company-logo-div img {
+    width: 125px;
+    height: 32px;
+}
+
+.easychat-bot-name-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FFFFFF;
+    padding: 0px 12px;
+}
+
+.easychat-bot-close-icon {
+    margin-left: 22px;
+    display: flex;
+    cursor: pointer;
+}
+
+.easychat-bot-speak-response-mute-unmute-icon {
+    display: flex;
+    cursor: pointer;
+}
+
+.easychat-bot-normal-header-div {
+    width: 100%;
+    display: flex;
+}
+
+.easychat-bot-welcome-message-div {
+    display: none;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.easychat-bot-welcome-message-hello-text {
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.easychat-bot-welcome-message-welcome-text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+}
+
+
+/* header css */
+
+
+/* message container css */
+
+.easychat-bottheme3-message-section-area-div {
+    box-sizing: border-box;
+    overscroll-behavior-y: none;
+    width: 100%;
+    height: calc(100vh - 14rem);
+    top: 64px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 24px;
+    position: absolute;
+}
+
+.easychat-bot-welcome-banner-wrapper {
+    width: 100%;
+    height: 187px;
+    /* padding: 0px 10px; */
+    margin-top: 65px;
+    display: flex;
+    /* display: none; */
+    align-items: center;
+    flex-direction: column;
+    /* position: absolute;
+    top: 152px;
+
+    left: 0px; */
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-track-container{
+    /* padding: 10px; */
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-track{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    transition: transform 250ms ease-in;
+}
+
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-slide{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-slide img{
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: fill !important;
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-nav{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-nav .easychat-carousel-indicator{
+    border: 0;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background: #C4C9D9;
+    margin: 0 12px;
+    cursor: pointer;
+}
+.easychat-bot-welcome-banner-wrapper .easychat-carousel-nav .easychat-carousel-indicator.active-slide-indicator{
+    background: #0254D7;
+}
+/* .easychat-bot-welcome-banner-wrapper svg {
+    margin-top: 14px;
+} */
+
+.easychat-bottheme3-message-section-area-div::-webkit-scrollbar {
+    width: 7px;
+}
+
+.easychat-bottheme3-message-section-area-div::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #babdc0;
+    /* border: 1px solid transparent; */
+}
+
+.easychat-bottheme3-message-section-area-div::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.easychat-bot-recommendation-wrapper {
+    margin-top: 1.5em;
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.easychat-recommendation-item {
+    margin: 0px 8px 8px 0px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: 0.2s ease-out;
+    outline: none;
+    padding: 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #4D4D4D;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+    word-break: break-word;
+}
+
+.easychat-recommendation-item:hover {
+    box-shadow: 0 6px 12px rgb(0 0 0 / 20%);
+    transform: translateY(-2px);
+}
+
+.easychat-bot-message-wrapper {
+    display: none;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.easychat-bot-message-text-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.easychat-bot-message-text-div {
+    max-width: 80%;
+    min-width: 64px;
+    width: auto;
+    word-break: break-word;
+    box-sizing: border-box;
+    padding: 16px;
+    background: #F6F6F6;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #2D2D2D;
+}
+
+.easychat-bot-message-time-div span {
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #4D4D4D;
+    margin-top: 10px;
+}
+
+.easychat-user-message-wrapper {
+    display: none;
+    width: 100%;
+    margin-bottom: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.easychat-user-message-text-div {
+    max-width: 80%;
+    min-width: 64px;
+    width: auto;
+    word-break: break-word;
+    box-sizing: border-box;
+    padding: 9px 16px;
+    background: #0254D7;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+}
+
+.easychat-user-message-time-div span {
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: #4D4D4D;
+    margin-top: 10px;
+}
+
+.easychat-user-message-time-div {
+    text-align: right;
+    width: 100%;
+}
+
+.easychat-bot-quick-recommendation-wrapper {
+    margin-top: 0.5em;
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content;
+    display: inline-block;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 44px;
+}
+
+.easychat-quick-recommendation-item {
+    margin: 0px 8px 8px 0px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: 0.2s ease-out;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 4px 8px;
+    color: #0254D7;
+    background: #FFFFFF;
+    border: 1px solid #0254D7;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    word-break: break-word;
+}
+
+.easychat-quick-recommendation-item:hover {
+    box-shadow: 0 6px 12px rgb(0 0 0 / 20%);
+    transform: translateY(-2px);
+    color: #ffffff;
+    background: #0254d7;
+}
+
+
+/* message container css */
+
+/* Mobile view */
+
+@media screen and (max-width: 500px){
+    #allincall-chat-box {
+width: 100%;
+height: 100%;
+bottom: 0em !important;
+right: 0em !important;
+}
+}
