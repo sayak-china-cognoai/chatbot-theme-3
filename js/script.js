@@ -242,3 +242,7 @@ $('#allincall-chat-box').on('click',function(){
     $('#language_dropdown_content').removeClass('is-active');
     isDropdownActive();
 })
+$('#user_input').on('click',function(){
+    $(language_dropdownTrigger).removeClass('easychat-bot-language-div-active');
+    $(".bot-selected-language-animation-text").hide('slow');
+})
