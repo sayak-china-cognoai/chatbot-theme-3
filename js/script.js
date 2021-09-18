@@ -199,3 +199,46 @@ function handleHomePageBanner() {
         yDown = null;                                             
     };
 }
+
+
+// LANGUAGE JAVASCRIPT
+
+
+const language_dropdownTrigger = $('.easychat-bot-language-div');
+const language_dropdown = $('#language_dropdown_content');
+const language_dropdownItem = $('.dropdown-item');
+
+function isDropdownActive(){
+    if($('#language_dropdown_content').hasClass('is-active')){
+        $('.bot-selected-language-animation-text').css({ color: "#0254D7" });
+        $('.minimize-icon-language svg').css({transform: "rotate(180deg)"})
+        $('.bot-language-icon svg path').css({stroke: "#0254D7"})
+    }
+    else
+    {
+        $('.bot-selected-language-animation-text').css({ color: "#000" });
+        $('.minimize-icon-language svg').css({transform: "rotate(0deg)"})
+        $('.bot-language-icon svg path').css({stroke: "#767B87"})
+    }
+}
+language_dropdownTrigger.on('click', function(event) {
+    event.stopPropagation();
+    $(this).addClass('easychat-bot-language-div-active');
+    $(".bot-selected-language-animation-text").show('slow');
+    $(this).closest('.easychat-bot-language-div').find('#language_dropdown_content').toggleClass('is-active');
+
+    isDropdownActive();
+  
+});
+$('.language-dropdown-items').on('click',function(event){
+    event.stopPropagation();
+    $(this).find('.active-language').removeClass('active-language');
+    $(event.target).addClass('active-language');
+    $('#language_dropdown_content').toggleClass('is-active');
+    $('.bot-selected-language-animation-text').text($(event.target).text());
+    isDropdownActive();
+})
+$('#allincall-chat-box').on('click',function(){
+    $('#language_dropdown_content').removeClass('is-active');
+    isDropdownActive();
+})
