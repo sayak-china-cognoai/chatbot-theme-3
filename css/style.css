@@ -131,13 +131,14 @@ body {
 }
 
 .easychat-bot-language-div-active {
+    -webkit-tap-highlight-color: transparent;
     width: 100%;
     flex-shrink: 2;
     height: 36px;
     z-index: 2;
     background: white;
     position: relative;
-    right: 3%;
+    right: 4%;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
 }
@@ -658,11 +659,23 @@ right: 0em !important;
 }
 
 .language-dropdown-items {
+    max-height: 152px;
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
     /* padding: 5px 0px; */
 }
+.language-dropdown-items::-webkit-scrollbar{
+    height: 4px !important;
+    width: 4px !important;
+}
+.language-dropdown-items::-webkit-scrollbar-track{
+background: #fff;
+}
+.language-dropdown-items::-webkit-scrollbar-thumb{
+    background: #ccd5ff;
+    }
+
 .language-dropdown-items .dropdown-item:hover{
 background-color:  #EEF1FF !important;
 }
@@ -693,7 +706,9 @@ background-color:  #EEF1FF !important;
     position: absolute;
     top: 50%;
     transform: translateY(-35%);
-    right: 2px;
+    right: 4px;
+    display: none; 
+    /* CHANGES */
 }
 
 /* css for language end*/
